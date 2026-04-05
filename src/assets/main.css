@@ -1,0 +1,465 @@
+@import url('https://fonts.googleapis.com/css2?family=Moulpali&family=Mea+Culpa&family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap');
+/* @import 'shepherd.js/dist/css/shepherd.css'; */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* Set base font size */
+html {
+  font-size: 16px; /* Default font size */
+  transition: font-size 0.3s ease; /* Smooth transition for font resizing */
+}
+body {
+  font-family: "Mea Culpa";
+  /* background-image: url("/background.jpg");
+  background-repeat: no-repeat;
+  background-position: center 0;
+  background-attachment: fixed;
+  background-size: cover; */
+  color: #fff;
+}
+
+h1,h2,h3,h5,h4,h6{
+  font-family: 'Moulpali';
+}
+
+p,table,a{
+  font-family: "Kantumruy Pro";
+}
+
+ul,
+h1,
+h2,
+h3,
+p {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom styles for the tour */
+.custom-tour {
+  background: #fff !important;
+  border-radius: 20px !important;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2) !important;
+  color: #333 !important;
+  font-family: 'Kantumruy Pro', sans-serif !important;
+  padding: 15px !important;
+  max-width: 300px !important;
+}
+
+/* Customize the Shepherd title */
+.shepherd-title {
+  font-size: 18px !important;
+  font-weight: bold !important;
+  color: red !important;
+}
+
+/* Customize the Shepherd text */
+.shepherd-text {
+  font-size: 16px !important;
+  color: #333 !important;
+}
+
+/* Customize the Shepherd buttons */
+.shepherd-button {
+  background-color: #007bff !important; /* Blue button */
+  color: white !important;
+  border-radius: 5px !important;
+  padding: 8px 12px !important;
+  font-size: 14px !important;
+  cursor: pointer !important;
+  border: none !important;
+}
+
+.shepherd-button:hover {
+  background-color: #0056b3 !important; /* Darker blue on hover */
+}
+
+/* Style the next and back buttons differently */
+.shepherd-button:first-child {
+  background-color: #28a745 !important; /* Green for next button */
+}
+
+.shepherd-button:last-child {
+  background-color: #dc3545 !important; /* Red for cancel/finish button */
+}
+
+/* Customize the arrow (tooltip pointer) */
+.shepherd-arrow {
+  color: #ffffff !important;
+}
+
+/* Customize the Shepherd modal overlay */
+.shepherd-modal-overlay-container {
+  background-color: rgba(0, 0, 0, 0.5) !important; 
+}
+
+
+.no-scroll {
+  overflow: hidden;
+}
+
+@keyframes colorChange {
+  0% { color: pink; }
+  35% { color: lightyellow; }
+  55% { color: orange; }
+  75% { color: orangered; }
+  100% { color: #ff0000; }
+}
+@keyframes borderColorChange {
+  0% { border: 2px solid pink; }
+  35% { border: 2px solid lightyellow; }
+  55% { border: 2px solid orange; }
+  75% { border: 2px solid orangered; }
+  100% { border: 2px solid red; }
+}
+@keyframes backgroundColorChange {
+  0% { background-color: green; }
+  50% { background-color: brown; }
+  100% { background-color: red; }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width:1200px) {
+  #audio{
+    width: 70px !important;
+    height: 200px !important;
+    background-color: #ff000083;
+  }
+  #audio .box-icon{
+    padding: 13px;
+  }
+  #audio .box-icon i{
+    font-size: 27px;
+  }
+  #audio,#font-size{
+    position: fixed !important;
+  }
+  #home-box{
+    padding: 0 !important;
+  }
+
+  #home-box #mobile-screen{
+    margin: 0 !important;
+  }
+
+  #home-box #mobile-screen .side-img{
+    display: block !important;
+  }
+
+  #home-box #mobile-screen .side-content .timer{
+    gap: 5px !important;
+  }
+
+  #home-box #mobile-screen .side-content .timer span{
+    width: 100% !important;
+    height: auto !important;
+    font-size: 40px !important;
+    padding: 12px !important;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width:992px) and (max-width: 1199.98px) {
+  .container-fluid{
+    padding: 20px 0 !important;
+  }
+  .container{
+    width: 100% !important;
+  }
+  #audio{
+    background-color: #ff000083;
+  }
+  #audio,#font-size{
+    position: fixed !important;
+  }
+  #home-box{
+    padding: 0 !important;
+  }
+
+  #home-box #mobile-screen{
+    margin: 0 !important;
+  }
+
+  #home-box #mobile-screen .side-img{
+    position: relative !important;
+    display: none !important;
+  }
+
+  #home-box #mobile-screen .side-content{
+    width: 100% !important;
+    position: absolute !important;
+    background-color: #00000044 !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #home-box #mobile-screen .side-content .row .countdown{
+    margin-top: 45% !important;
+    padding: 40px !important;
+  }
+
+  #home-box #mobile-screen .side-content .timer{
+    gap: 5px !important;
+  }
+
+  #home-box #mobile-screen .side-content .timer span{
+    width: 100% !important;
+    height: auto !important;
+    font-size: 40px !important;
+    padding: 12px !important;
+  }
+
+  #parents #box{
+    width: 50% !important;
+  }
+
+  /* Styling for popup overlay */
+  .popup-overlay .popup-box {
+      width: 90% !important;
+  }
+}
+
+/* Medium devices (tables, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .container-fluid{
+    padding: 20px 0 !important;
+  }
+  .container{
+    width: 100% !important;
+  }
+  #audio{
+    background-color: #ff000083;
+  }
+  #audio,#font-size{
+    position: fixed !important;
+  }
+  #home-box{
+    padding: 0 !important;
+  }
+
+  #home-box #mobile-screen{
+    margin: 0 !important;
+  }
+
+  #home-box #mobile-screen .side-img{
+    position: relative !important;
+    display: none !important;
+  }
+
+  #home-box #mobile-screen .side-content{
+    width: 100% !important;
+    position: absolute !important;
+    background-color: #00000044 !important;
+  }
+
+  #home-box #mobile-screen .side-content .row .countdown{
+    margin-top: 70%;
+  }
+
+  #home-box #mobile-screen .side-content .timer{
+    gap: 5px !important;
+  }
+
+  #home-box #mobile-screen .side-content .timer span{
+    width: 100% !important;
+    height: auto !important;
+    font-size: 40px !important;
+    padding: 12px !important;
+  }
+
+  #parents #box{
+    width: 50% !important;
+  }
+
+  /* Styling for popup overlay */
+  .popup-overlay .popup-box {
+      width: 90% !important;
+  }
+}
+
+/* Small devices(landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .container-fluid{
+    padding: 20px 0 !important;
+  }
+  .container{
+    width: 100% !important;
+  }
+  #audio{
+    background-color: #ff000083;
+  }
+  #audio,#font-size{
+    position: fixed !important;
+  }
+  #home-box{
+    padding: 0 !important;
+  }
+
+  #home-box #mobile-screen{
+    margin: 0 !important;
+  }
+  
+  #home-box #mobile-screen .side-img{
+    position: relative !important;
+    display: none !important;
+  }
+
+  #home-box #mobile-screen .side-content{
+    width: 100% !important;
+    position: absolute !important;
+    background-color: #00000044 !important;
+  }
+
+  #home-box #mobile-screen .side-content .row .countdown{
+    margin-top: 75% !important;
+  }
+
+  #home-box #mobile-screen .side-content .timer{
+    gap: 5px !important;
+  }
+
+  #home-box #mobile-screen .side-content .timer span{
+    width: 100% !important;
+    height: auto !important;
+    font-size: 30px !important;
+    padding: 12px !important;
+  }
+
+  #parents #box{
+    width: 50% !important;
+  }
+
+  /* Styling for popup overlay */
+  .popup-overlay .popup-box {
+      width: 90% !important;
+  }
+}
+
+/* Extra small devices(portrait phones, less than 576px) */
+@media (min-width: 320px) and (max-width: 575.98px) {
+  h1{
+    font-size: 16px;
+  }
+  h3{
+    font-size: 16px !important;
+  }
+  h4{
+    font-size: 14px !important;
+  }
+  h5, h6, p{
+    font-size: 12px !important;
+  }
+  .fs-4{
+    font-size: 20px !important;
+  }
+  /* Custom styles for the tour */
+  .custom-tour {
+    max-width: 200px !important;
+  }
+
+  /* Customize the Shepherd title */
+  .shepherd-title {
+    font-size: 13px !important;
+    text-align: center !important;
+  }
+
+  /* Customize the Shepherd footer */
+  .shepherd-footer .shepherd-button{
+    padding: 4px 10px !important;
+    font-size: 14px !important;
+  }
+
+  #parents, #invitation, #date-time, #event, #thank-sorry, #location{
+    margin-top: 20px !important;
+  }
+  #event .mb-2, .mt-4{
+    margin-bottom: 0px !important;
+  }
+  .content{
+    padding: 20px 0 !important;
+  }
+  .container{
+    width: 100% !important;
+  }
+  .box{
+    width: 50%;
+  }
+  .box-img{
+    width: 150px;
+    height: 240px;
+  }
+
+  .table tr td:first-child{
+    width: 100px !important;
+    font-size: 12px;
+  }
+  .table tr td:nth-child(2){
+    width: 10px !important;
+    font-size: 12px;
+  }
+  .table tr td:nth-child(3){
+    font-size: 12px;
+  }
+  .fs-5{
+    font-size: 12px !important;
+  }
+  .location-img{
+    height: 250px !important;
+  }
+  #audio{
+    background-color: #ff000083;
+  }
+  #audio,#font-size{
+    position: fixed !important;
+  }
+  #font-size{
+    width: 60px !important;
+    display: none !important;
+  }
+
+  #home-box{
+    padding: 0 !important;
+  }
+
+  #home-box #mobile-screen{
+    margin: 0 !important;
+  }
+
+  #home-box #mobile-screen .side-img{
+    position: relative !important;
+    display: none !important;
+  }
+
+  #home-box #mobile-screen .side-content{
+    width: 100% !important;
+    position: absolute !important;
+    background-color: #00000044 !important;
+  }
+
+  #home-box #mobile-screen .side-content .row .countdown{
+    margin-top: 75%;
+  }
+
+  #home-box #mobile-screen .side-content .timer{
+    gap: 4px !important;
+  }
+
+  #home-box #mobile-screen .side-content .timer span{
+    height: auto !important;
+    font-size: 20px !important;
+    padding: 10px !important;
+  }
+
+  #parents #box{
+    width: 50% !important;
+  }
+
+  /* Styling for popup overlay */
+  .popup-overlay .popup-box {
+      width: 90% !important;
+  }
+}

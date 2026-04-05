@@ -1,0 +1,22 @@
+{
+    "name": "Wedding Invitation",
+    "short_name": "Wedding Invite",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ff0000", 
+    "theme_color": "#ff0000",
+    "description": "A beautiful wedding invitation for our special day.",
+    "icons": [
+      {
+        "src": "/icons/icon-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/icons/icon-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
+  
