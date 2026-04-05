@@ -6,13 +6,13 @@
 
   const startTour = () => {
     if (localStorage.getItem('skipTour') === 'true') {
-      return; // Don't show the tour if the user already skipped
+      return;
     }
 
     const tour = new Shepherd.Tour({
       useModalOverlay: true,
       defaultStepOptions: {
-        classes: 'custom-tour', // Custom class for styling
+        classes: 'custom-tour',
         scrollTo: true,
       },
     });
@@ -26,39 +26,43 @@
         on: 'top' 
       },
       buttons: [
-        { text: 'Skip', action: () => skipTour(tour) }, // Skip Tour
-        { text: 'Next', action: tour.next }],
-    });
-
-    tour.addStep({
-      id: 'Add-to-Google-Caledar',
-      title: '📅 កត់ទុកក្នុងប្រតិទិន',
-      text: 'សូមធ្វើការកត់ចំណាំការអញ្ចើញរបស់យើងខ្ញុំទៅក្នុង Google Caledar! ✍️',
-      attachTo: {
-        element: '.google-calendar-btn',
-        on: 'right'
-      },
-      buttons: [
-        { text: 'Skip', action: () => skipTour(tour) }, // Skip Tour
-        { text: 'Back', action: tour.back },
-        { text: 'Next', action: tour.next }
-      ]
-    });
-
-    tour.addStep({
-      id: 'countdown',
-      title: '⏳ រាប់ថយក្រោយ',
-      text: 'នេះបង្ហាញពីពេលវេលានៅសល់រហូតដល់ថ្ងៃរៀបការ!',
-      attachTo: { 
-        element: '.timer', 
-        on: 'bottom' 
-      },
-      buttons: [
-        { text: 'Skip', action: () => skipTour(tour) }, // Skip Tour
-        { text: 'Back', action: tour.back },
+        { text: 'Skip', action: () => skipTour(tour) },
         { text: 'Next', action: tour.next }
       ],
     });
+
+    // Only add Google Calendar and Countdown steps if event has not ended
+    if (!eventEnded.value) {
+      tour.addStep({
+        id: 'Add-to-Google-Calendar',
+        title: '📅 កត់ទុកក្នុងប្រតិទិន',
+        text: 'សូមធ្វើការកត់ចំណាំការអញ្ចើញរបស់យើងខ្ញុំទៅក្នុង Google Calendar! ✍️',
+        attachTo: {
+          element: '.google-calendar-btn',
+          on: 'right'
+        },
+        buttons: [
+          { text: 'Skip', action: () => skipTour(tour) },
+          { text: 'Back', action: tour.back },
+          { text: 'Next', action: tour.next }
+        ]
+      });
+
+      tour.addStep({
+        id: 'countdown',
+        title: '⏳ រាប់ថយក្រោយ',
+        text: 'នេះបង្ហាញពីពេលវេលានៅសល់រហូតដល់ថ្ងៃរៀបការ!',
+        attachTo: { 
+          element: '.timer', 
+          on: 'bottom' 
+        },
+        buttons: [
+          { text: 'Skip', action: () => skipTour(tour) },
+          { text: 'Back', action: tour.back },
+          { text: 'Next', action: tour.next }
+        ],
+      });
+    }
 
     tour.addStep({
       id: 'rsvp',
@@ -69,7 +73,7 @@
         on: 'top' 
       },
       buttons: [
-        { text: 'Skip', action: () => skipTour(tour) }, // Skip Tour
+        { text: 'Skip', action: () => skipTour(tour) },
         { text: 'Back', action: tour.back },
         { text: 'Ok', action: tour.complete },
       ],
@@ -86,6 +90,8 @@
   // Set the wedding date (YYYY, MM (0-based), DD, HH, MM, SS)
   const weddingDate = new Date(2025, 2, 15, 6, 30, 0); // March 15, 2025, at 06:30 AM
   const weddingEndDate = new Date(2025, 2, 15, 23, 0, 0); // Event END
+  // const weddingDate = new Date(2026, 3, 15, 6, 30, 0); // March 15, 2026, at 06:30 AM
+  // const weddingEndDate = new Date(2026, 3, 15, 23, 0, 0); // Event END
 
   const khmerDays = ['អាទិត្យ', 'ច័ន្ទ', 'អង្គារ', 'ពុធ', 'ព្រហស្បតិ៍', 'សុក្រ', 'សៅរ៍'];
   const khmerMonths = ['មករា', 'កុម្ភៈ', 'មីនា', 'មេសា', 'ឧសភា', 'មិថុនា', 'កក្កដា', 'សីហា', 'កញ្ញា', 'តុលា', 'វិច្ឆិកា', 'ធ្នូ'];
